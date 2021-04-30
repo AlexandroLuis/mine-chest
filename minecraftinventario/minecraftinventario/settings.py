@@ -1,11 +1,12 @@
 from pathlib import Path
 import os
+import allauth
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "g(ugkz#7lb$jbex0q4vtc=uh@do#(zru_qzk+z!@ll@yeg=k#y"
+SECRET_KEY = "3dg*3m4!^iu&3bym0f_0h&7_nykish33o_-vgrfv014ltza00g"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,7 +31,7 @@ INSTALLED_APPS = [
     # local
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
-]
+] 
 
 AUTH_USER_MODEL = "users.User"
 
@@ -110,6 +111,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
 SITE_ID = 1
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_REDIRECT_URL = "/"

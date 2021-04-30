@@ -6,9 +6,11 @@
     <div align="center" class="button-wrapper">
 		{% if user.is_authenticated %}
 			<a href="{% url 'account_logout' %}"><div class="button"><span>Sair</span></div></a>
+
+			<h1>Inventario</h1>
 		{% else %}
 			<a href="{% url 'account_login' %}"><div class="button"><span>Entrar</span></div></a>
 			<a href="{% url 'account_signup' %}"><div class="button"><span>Criar Conta</span></div></a>
 		{% endif %}
-	</div>
+	</div>	
 {% endblock %}
