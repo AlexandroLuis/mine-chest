@@ -1,3 +1,5 @@
+/* Base de estilo */
+
 @font-face {
   font-family: 'Minecraft';
   src: url("../css/minecraftfont.eot");
@@ -48,7 +50,6 @@ footer {
 	margin-top: 5%;
 	width: 50%;
 }
- 
 #flashingtext {
 	margin: -3.5% 0 0 47%;
 	width: 40%;
@@ -173,6 +174,7 @@ footer .right {
 }
 
 /* Inventario */
+
 .content {
   width: 100%;
   height: 100%;
@@ -181,25 +183,14 @@ footer .right {
   align-items: center;
   flex-direction: column;
 }
-
 .inventory {
   width: 335px;
   height: 200px;
   background: #c6c6c6;
   border-radius: 3px;
   box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
-  padding-top: 5px;
   padding-left: 5px;
-  margin-bottom: 10px;
 }
-
-h1 {
-  margin: 5px 10px;
-  font-family: 'VT323', monospace;
-  font-size: 24px;
-  color: #404040;
-}
-
 .number {
   font-family: 'VT323', monospace;
   font-size: 24px;
@@ -210,7 +201,6 @@ h1 {
   right: -8px;
   cursor: default;
 }
-
 .slot {
   width: 35px;
   height: 35px;
@@ -220,17 +210,11 @@ h1 {
   box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
     inset -2px -2px 0px #ffffff;
 }
-
 .slotSpace {
   margin: 10px 10px;
   display: flex;
   flex-wrap: wrap;
 }
-
-.invisible {
-  visibility: hidden;
-}
-
 .item {
   margin: 2px;
   display: flex;
@@ -239,37 +223,7 @@ h1 {
   width: 30px;
   height: 30px;
 }
-
 .item img {
   width: 28px;
 }
-
-.ghostItem img {
-  width: 28px;
-}
-.ghostItem .number {
-  top: -20px;
-  right: -13px;
-}
-
-::selection {
-  background: transparent;
-}
-
-::-moz-selection {
-  background: transparent;
-}
-
-.copy {
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  width: 350px;
-  display: flex;
-  justify-content: flex-end;
-  color: #333;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
+/**/
