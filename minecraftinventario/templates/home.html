@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+	<!-- Inventário -->
+	{% if user.is_authenticated %}
+		<br><a href="{% url 'account_logout' %}"><span>Sair</span></a>
+		<div class="content">
+			<div class="inventory">
+				<span class="center">Inventário</span>
+				<div class="slotSpace">
+					<div id="0" class="slot"></div>
+					<div id="1" class="slot"></div>
+					<div id="2" class="slot"></div>
+					<div id="3" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/wood.png' %}" />
+							<div class="number">27</div>
+						</div>
+					</div>
+					<div id="4" class="slot"></div>
+					<div id="5" class="slot"></div>
+					<div id="6" class="slot"></div>
+					<div id="7" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/wood.png' %}" />
+							<div class="number">33</div>
+						</div>
+					</div>
+					<div id="8" class="slot"></div>
+					<div id="9" class="slot"></div>
+					<div id="10" class="slot"></div>
+					<div id="11" class="slot"></div>
+					<div id="12" class="slot"></div>
+					<div id="13" class="slot"></div>
+					<div id="14" class="slot">
+						<div class="item" id="cobblestone">
+							<img src="{% static 'img/cobblestone.png' %}" />
+							<div class="number">3</div>
+						</div>
+					</div>
+					<div id="15" class="slot"></div>
+					<div id="16" class="slot"></div>
+					<div id="17" class="slot"></div>
+					<div id="18" class="slot"></div>
+					<div id="19" class="slot"></div>
+					<div id="20" class="slot">
+						<div class="item" id="cobblestone">
+							<img src="{% static 'img/cobblestone.png' %}" />
+							<div class="number">14</div>
+						</div>
+					</div>
+					<div id="21" class="slot"></div>
+					<div id="22" class="slot"></div>
+					<div id="23" class="slot"></div>
+					<div id="24" class="slot"></div>
+					<div id="25" class="slot"></div>
+					<div id="26" class="slot"></div>
+				</div>
+				<div class="slotSpace">
+					<div id="35" class="slot">
+						<div class="item" id="diamond_sword">
+							<img src="{% static 'img/diamond-sword.png' %}" />
+							<div class="number">1</div>
+						</div>
+					</div>
+					<div id="27" class="slot">
+						<div class="item" id="steak">
+							<img src="{% static 'img/steak.png' %}" />
+							<div class="number">12</div>
+						</div>
+					</div>
+					<div id="28" class="slot">
+						<div class="item" id="diamond">
+							<img src="{% static 'img/diamond.png' %}" />
+							<div class="number">33</div>
+						</div>
+					</div>
+					<div id="29" class="slot">
+						<div class="item" id="golden_apple">
+							<img src="{% static 'img/apple.gif' %}" />
+							<div class="number">63</div>
+						</div>
+					</div>
+					<div id="30" class="slot">
+						<div class="item" id="iron_ingot">
+							<img src="{% static 'img/iron.png' %}" />
+							<div class="number">25</div>
+						</div>
+					</div>
+					<div id="31" class="slot">
+						<div class="item" id="pic_diamond">
+							<img src="{% static 'img/diamond-pickaxe.png' %}" />
+							<div class="number">1</div>
+						</div>
+					</div>
+					<div id="32" class="slot">
+						<div class="item" id="cobblestone">
+							<img src="{% static 'img/cobblestone.png' %}" />
+							<div class="number">32</div>
+						</div>
+					</div>
+					<div id="33" class="slot"></div>
+					<div id="34" class="slot"></div>
+				</div>
+			</div>
+		</div>		
+	{% else %}
+		<div align="center" class="button-wrapper">
+			<a href="{% url 'account_login' %}"><div class="button"><span>Entrar</span></div></a>
+			<a href="{% url 'account_signup' %}"><div class="button"><span>Criar Conta</span></div></a>
+		</div>
+	{% endif %}
+{% endblock %}
