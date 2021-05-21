@@ -1,7 +1,11 @@
 # MinecraftInventory
 
-Python web usando django+python
+Inventario Minecraft desenvolvido usando Django+Python Web
 
-- Crie o  environment (virtualenv env)
-- abra o cmd da pasta onde o env e os códigos foram criados
-- execute os comandos do arquivo txt no cmd
+Como Executar:
+-Baixe a Versão Estável
+-Execute o arquivo Initialize
+
+Como Modificar:
+-Verifique se suas modificações seguem a arquitetura MVT(Model, View, Template), requerida pelo django
+-Fazer um Merge no Main
