@@ -1,63 +1,152 @@
+<!-- 7.11 | Extensão da base.html -->
 {% extends 'base.html' %}
 
 {% load static %}
+{% load random_numbers %}
 
 {% block title %}Página Inicial{% endblock %}
-
+<!-- Bloco de conteúdo de páginas -->
 {% block content %}
 	<!-- Inventário -->
 	{% if user.is_authenticated %}
 		<br><a href="{% url 'account_logout' %}"><span>Sair</span></a><br><br>
 		<div align="center">
 			<div class="inventory">
-				<span class="center">Bau</span>
+				<span class="left">Bau</span>
+				<span class="center">Meta: {% random_int %} <!-- Pontuação Generica e ateatória --><span>
+				<span class="right">Pontos: {% sum %}<!-- Pontuação a ser obtida pelo jogador --></span><br>
+				<!-- Não Incluir Itens dentro deste comentario! -->
 				<div class="slotSpace">
-					<div id="0" class="slot"></div>
-					<div id="1" class="slot"></div>
-					<div id="2" class="slot"></div>
+					<div id="0" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Blaze_Rod.png' %}" />
+						</div>
+					</div>
+					<div id="1" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/BoneNew.png' %}" />
+						</div>
+					</div>
+					<div id="2" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/ClayNew.png' %}" />
+						</div>
+					</div>
 					<div id="3" class="slot">
 						<div class="item" id="wood">
-							<img src="{% static 'img/wood.png' %}" />
-							<div class="number">27</div>
+							<img src="{% static 'img/CoalNew.png' %}" />
 						</div>
 					</div>
-					<div id="4" class="slot"></div>
-					<div id="5" class="slot"></div>
-					<div id="6" class="slot"></div>
+					<div id="4" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/CharcoalNew.png' %}" />
+						</div>
+					</div>
+					<div id="5" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/EnderPearlNew.png' %}" />
+						</div>
+					</div>
+					<div id="6" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/FeatherNew.png' %}" />
+						</div>
+					</div>
 					<div id="7" class="slot">
 						<div class="item" id="wood">
-							<img src="{% static 'img/wood.png' %}" />
-							<div class="number">33</div>
+							<img src="{% static 'img/FlintNew.png' %}" />
 						</div>
 					</div>
-					<div id="8" class="slot"></div>
-					<div id="9" class="slot"></div>
-					<div id="10" class="slot"></div>
-					<div id="11" class="slot"></div>
-					<div id="12" class="slot"></div>
-					<div id="13" class="slot"></div>
+					<div id="8" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/GhastTearNew.png' %}" />
+						</div>
+					</div>
+					<div id="9" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Glowstone.PNG.png' %}" />
+						</div>
+					</div>
+					<div id="10" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/New_Gold_IngotB.png' %}" />
+						</div>
+					</div>
+					<div id="11" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/GunpowderNew.png' %}" />
+						</div>
+					</div>
+					<div id="12" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/New_Iron_IngotB.png' %}" />
+						</div>
+					</div>
+					<div id="13" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/HideNew.png' %}" />
+						</div>
+					</div>
 					<div id="14" class="slot">
-						<div class="item" id="cobblestone">
-							<img src="{% static 'img/cobblestone.png' %}" />
-							<div class="number">3</div>
+						<div class="item" id="wood">
+							<img src="{% static 'img/RedstoneNew.png' %}" />
 						</div>
 					</div>
-					<div id="15" class="slot"></div>
-					<div id="16" class="slot"></div>
-					<div id="17" class="slot"></div>
-					<div id="18" class="slot"></div>
-					<div id="19" class="slot"></div>
+					<div id="15" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/StringNew.png' %}" />
+						</div>
+					</div>
+					<div id="16" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/BreadNew.png' %}" />
+						</div>
+					</div>
+					<div id="17" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/PufferfishItem.png' %}" />
+						</div>
+					</div>
+					<div id="18" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Bow.gif' %}" />
+						</div>
+					</div>
+					<div id="19" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Bucket_NewTexture.png' %}" />
+						</div>
+					</div>
 					<div id="20" class="slot">
-						<div class="item" id="cobblestone">
-							<img src="{% static 'img/cobblestone.png' %}" />
-							<div class="number">14</div>
+						<div class="item" id="wood">
+							<img src="{% static 'img/FlintAndSteelNew.png' %}" />
 						</div>
 					</div>
-					<div id="21" class="slot"></div>
-					<div id="22" class="slot"></div>
-					<div id="23" class="slot"></div>
-					<div id="24" class="slot"></div>
-					<div id="25" class="slot"></div>
+					<div id="21" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Fire_Charge_newtexture.png' %}" />
+						</div>
+					</div>
+					<div id="22" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Arrow.png' %}" />
+						</div>
+					</div>
+					<div id="23" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Minecraft_Cooked_Salmon.png' %}" />
+						</div>
+					</div>
+					<div id="24" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/Stick_inventory.png' %}" />
+						</div>
+					</div>
+					<div id="25" class="slot">
+						<div class="item" id="wood">
+							<img src="{% static 'img/BookNew.png' %}" />
+						</div>
+					</div>
 					<div id="26" class="slot"></div>
 					<div id="27" class="slot"></div>
 					<div id="28" class="slot"></div>
@@ -78,108 +167,128 @@
 					<div id="43" class="slot"></div>
 					<div id="44" class="slot"></div>
 				</div>
+				<!-- Fim do comentario -->
 			</div>
 			<div class="inventory">
-				<span class="center">Inventário</span>
+				<span class="left">Inventário</span><br>
 				<div class="slotSpace">
-					<div id="45" class="slot"></div>
-					<div id="46" class="slot"></div>
-					<div id="47" class="slot"></div>
-					<div id="48" class="slot">
+					<!-- Incluir itens aqui:
+						**									**
+							Maça Dourada = apple.png        
+							Carne = steak.png               
+							Picareta = diamond-pickaxe.png  
+							Madeira = wood.png              
+							Blodo de pedra = cobblestone.png               
+							Terra = dirtinv.png             
+							Ferro = iron.png                
+							Diamante = diamond.png          
+							Espada = diamond-sword.png      
+						**									**
+					-->
+					<div id="45" class="slot">
 						<div class="item" id="wood">
 							<img src="{% static 'img/wood.png' %}" />
-							<div class="number">27</div>
 						</div>
 					</div>
+					<div id="46" class="slot"></div>
+					<div id="47" class="slot"></div>
+					<div id="48" class="slot"></div>
 					<div id="49" class="slot"></div>
 					<div id="50" class="slot"></div>
 					<div id="51" class="slot"></div>
-					<div id="52" class="slot">
-						<div class="item" id="wood">
-							<img src="{% static 'img/wood.png' %}" />
-							<div class="number">33</div>
-						</div>
-					</div>
+					<div id="52" class="slot"></div>
 					<div id="53" class="slot"></div>
 					<div id="54" class="slot"></div>
 					<div id="55" class="slot"></div>
 					<div id="56" class="slot"></div>
 					<div id="57" class="slot"></div>
 					<div id="58" class="slot"></div>
-					<div id="59" class="slot">
-						<div class="item" id="cobblestone">
-							<img src="{% static 'img/cobblestone.png' %}" />
-							<div class="number">3</div>
-						</div>
-					</div>
+					<div id="59" class="slot"></div>
 					<div id="60" class="slot"></div>
 					<div id="61" class="slot"></div>
 					<div id="62" class="slot"></div>
 					<div id="63" class="slot"></div>
 					<div id="64" class="slot"></div>
-					<div id="65" class="slot">
-						<div class="item" id="cobblestone">
-							<img src="{% static 'img/cobblestone.png' %}" />
-							<div class="number">14</div>
-						</div>
-					</div>
+					<div id="65" class="slot"></div>
 					<div id="66" class="slot"></div>
 					<div id="67" class="slot"></div>
 					<div id="68" class="slot"></div>
 					<div id="69" class="slot"></div>
 					<div id="70" class="slot"></div>
-					<div id="71" class="slot"></div>
+					<div id="71" class="slot">
+						<div class="item" id="cobblestone">
+							<img src="{% static 'img/cobblestone.png' %}" />
+						</div>
+					</div>
 				</div>
+				<!-- Fim da inserção de itens -->
+					
+				<!-- Galardão, Não mexer -->
 				<div class="slotSpace">
 					<div id="72" class="slot">
-						<div class="item" id="diamond_sword">
+						<div>
 							<img src="{% static 'img/diamond-sword.png' %}" />
-							<div class="number">1</div>
+							<div class="number">9</div>
 						</div>
 					</div>
 					<div id="73" class="slot">
-						<div class="item" id="steak">
-							<img src="{% static 'img/steak.png' %}" />
-							<div class="number">12</div>
+						<div>
+							<img src="{% static 'img/diamond.png' %}" />
+							<div class="number">8</div>
 						</div>
 					</div>
 					<div id="74" class="slot">
-						<div class="item" id="diamond">
-							<img src="{% static 'img/diamond.png' %}" />
-							<div class="number">33</div>
+						<div>
+							<img src="{% static 'img/diamond-pickaxe.png' %}" />
+							<div class="number">7</div>
 						</div>
 					</div>
 					<div id="75" class="slot">
-						<div class="item" id="golden_apple">
+						<div>
 							<img src="{% static 'img/apple.gif' %}" />
-							<div class="number">63</div>
+							<div class="number">6</div>
 						</div>
 					</div>
 					<div id="76" class="slot">
-						<div class="item" id="iron_ingot">
+						<div>
 							<img src="{% static 'img/iron.png' %}" />
-							<div class="number">25</div>
+							<div class="number">5</div>
 						</div>
 					</div>
 					<div id="77" class="slot">
-						<div class="item" id="pic_diamond">
-							<img src="{% static 'img/diamond-pickaxe.png' %}" />
-							<div class="number">1</div>
+						<div>
+							<img src="{% static 'img/cobblestone.png' %}" />
+							<div class="number">4</div>
 						</div>
 					</div>
 					<div id="78" class="slot">
-						<div class="item" id="cobblestone">
-							<img src="{% static 'img/cobblestone.png' %}" />
-							<div class="number">32</div>
+						<div>
+							<img src="{% static 'img/steak.png' %}" />
+							<div class="number">3</div>
 						</div>
 					</div>
-					<div id="79" class="slot"></div>
-					<div id="80" class="slot"></div>
+					<div id="79" class="slot">
+						<div>
+							<img src="{% static 'img/wood.png' %}" />
+							<div class="number">2</div>
+						</div>
+					</div>
+					<div id="80" class="slot">
+						<div>
+							<img src="{% static 'img/dirtinv.png' %}" />
+							<div class="number">1</div>
+						</div>
+					</div>
+					<!-- Fim do Galardão -->
 				</div>
 			</div>
-		</div>		
+		</div>	
+		<!-- Arquivo de script sobre o drag and drop do inventario -->
 		<script src="{% static 'js/script.js' %}"></script>
 	{% else %}
+		<!--
+			Caso o Usuario não estiver logado, isso irá aparecer, na página inicial "home.html"
+		-->
 		<div align="center" class="button-wrapper">
 			<a href="{% url 'account_login' %}"><div class="button"><span>Entrar</span></div></a>
 			<a href="{% url 'account_signup' %}"><div class="button"><span>Criar Conta</span></div></a>

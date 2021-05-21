@@ -47,6 +47,7 @@ footer {
 	backdrop-filter: blur(16px);
 }
 #logo {
+	margin-top: 3%;
 	width: 50%;
 }
 #flashingtext {
@@ -172,8 +173,7 @@ footer .right {
 	}
 }
 
-/* Inventario */
-
+/* inicio do estilo do inventario */
 .inventory {
   width: 335px;
   height: 200px;
@@ -217,4 +217,4 @@ footer .right {
 .item img {
   width: 28px;
 }
-/**/
+/*Fim do estilo do inventario*/
