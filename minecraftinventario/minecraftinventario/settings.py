@@ -96,6 +96,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# IMG URL
+MEDIA_ROOT = 'static/'
+RANDOM_IMAGE_DIR = '/item/'
+RANDOM_IMAGE_EXTENSIONS = ['.jpg','.jpeg','.png','.gif']
+MEDIA_URL = '/img/item/'
+
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static')
 ]
