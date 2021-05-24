@@ -1,3 +1,0 @@
-.\env\Scripts\activate
-cd minecraftinventario
-py manage.py runserver
