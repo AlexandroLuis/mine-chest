@@ -21,3 +21,4 @@ def random_image(image_dir):
     files = [f for f in os.listdir(rand_dir) if os.path.splitext(f)[1] in valid_extensions]
 
     return os.path.join(rel_dir, random.choice(files))
+    

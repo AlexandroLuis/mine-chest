@@ -16,10 +16,10 @@
 				<span class="left">Bau</span>
 				
 				<!-- Pontuação Generica e ateatória -->
-				<span class="center">Meta: {% random_int %}<span>
+				<span class="center">Meta: </span><span id="meta">{% random_int %}</span>
 				
 				<!-- Pontuação a ser obtida pelo jogador -->
-				<div class="right"  id="counter">Pontos: 0</div><br>
+				<span class="right" id="pontuacao"></span><br>
 				
 				<!-- Não Incluir Itens dentro deste comentario! -->
 				<div class="slotSpace">
@@ -153,189 +153,23 @@
 							<img src="{% static 'img/BookNew.png' %}" />
 						</div>
 					</div>
-					<div id="26" class="slot"></div>
-					<div id="27" class="slot"></div>
-					<div id="28" class="slot"></div>
-					<div id="29" class="slot"></div>
-					<div id="30" class="slot"></div>
-					<div id="31" class="slot"></div>
-					<div id="32" class="slot"></div>
-					<div id="33" class="slot"></div>
-					<div id="34" class="slot"></div>
-					<div id="35" class="slot"></div>
-					<div id="36" class="slot"></div>
-					<div id="37" class="slot"></div>
-					<div id="38" class="slot"></div>
-					<div id="39" class="slot"></div>
-					<div id="40" class="slot"></div>
-					<div id="41" class="slot"></div>
-					<div id="42" class="slot"></div>
-					<div id="43" class="slot"></div>
-					<div id="44" class="slot"></div>
+					{% for i in 19|times %}
+						<div id="EspacoItens{{ i }}" class="slot"></div>
+					{% endfor %}
 				</div>
 				<!-- Fim do comentario -->
 			</div>
 			<div class="inventory">
 				<span class="left">Inventário</span><br>
 				<div class="slotSpace">
-					<!-- Incluir itens aqui:
-						**									**
-							Maça Dourada = apple.png        
-							Carne = steak.png               
-							Picareta = diamond-pickaxe.png  
-							Madeira = wood.png              
-							Blodo de pedra = cobblestone.png               
-							Terra = dirtinv.png             
-							Ferro = iron.png                
-							Diamante = diamond.png          
-							Espada = diamond-sword.png      
-						**									**
-					-->
-					
-					<!-- damn
+				<!-- Incluir itens aqui -->	
 					{% for i in 27|times %}
 						<div class="slot">
-							<div class="item" id="randitem{% random_int %}">
+							<div class="item" id="randitem{{ i }}">
 								<img src="static/{{ MEDIA_URL }}{% random_image 'img/item/' %}">
 							</div>
 						</div>
 					{% endfor %}
-					-->
-					<div class="slot">
-						<div class="item" id="randitem1">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item/' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem2">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item/' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem3">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem4">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem5">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem6">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem7">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem8">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem9">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem10">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem11">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem12">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem13">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem14">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem15">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem16">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem17">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem18">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem19">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem20">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem21">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem22">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem23">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem24">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem25">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem26">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
-					<div class="slot">
-						<div class="item" id="randitem27">
-							<img src="static/{{ MEDIA_URL }}{% random_image 'img/item' %}">
-						</div>
-					</div>
 				</div>
 				<!-- Fim da inserção de itens -->
 					
@@ -401,6 +235,22 @@
 		</div>
 		<!-- Arquivo de script sobre o drag and drop do inventario -->
 		<script src="{% static 'js/ScriptArchive.js' %}"></script>
+		<script>
+			window.onload = function(){
+				var sum = 0;
+				var pontos = "Pontos: ";
+				var Meta = document.getElementById("meta").innerHTML;
+				document.getElementById("pontuacao").innerHTML = pontos + sum;
+
+				setInterval(function() {
+					/* FAZER A FUNÇÃO SOBRE A SOMA DOS ITENS AQUI */
+					document.getElementById("pontuacao").innerHTML = pontos + sum;
+					if(Meta == sum){
+						alert("Parabéns!");	
+					}					
+				}, 500);
+			}
+		</script>
 	{% else %}
 		<!--
 			Caso o Usuario não estiver logado, isso irá aparecer, na página inicial "home.html"
