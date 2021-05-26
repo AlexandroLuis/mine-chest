@@ -145,3 +145,52 @@ function leaveDroppable(elem) {
   current_itemValue = null;
   free_space = false;
 }
+
+window.onload = function(){
+	var counter = setInterval(loader ,300);
+				
+	function loader() {
+		calculandoPontos();					
+					
+		function calculandoPontos(){
+			var getID;
+			var sum = 0;
+			var Meta = document.getElementById("meta").innerHTML;
+			for(let i = 0; i <= 18 ; i++){
+				var att = document.querySelector("#EspacoItens"+i).childNodes.length;
+				if(parseInt(att) != 0){
+					getID = document.getElementById("EspacoItens"+i).getElementsByTagName("img")[0].src;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/dirtinv.png") sum+=1;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/wood.png") sum+=2;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/steak.png") sum+=3;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/cobblestone.png") sum+=4;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/iron.png") sum+=5;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/apple.gif") sum+=6;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/diamond-pickaxe.png") sum+=7;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/diamond.png") sum+=8;
+					
+					if(getID == "http://127.0.0.1:8000/static/img/item/diamond-sword.png") sum+=9;
+					
+				}
+			}
+			if(Meta == sum){
+				alert("Parabéns, Você completou o desafio!");
+				clearInterval(counter);
+			}	
+			else if(sum > Meta){
+				alert("Oops, Você extrapolou a quantidade!");	
+				window.location.reload();	
+				clearInterval(counter);				
+			}	
+			document.getElementById("pontuacao").innerHTML="Pontos: " + sum;
+		}
+	}
+}

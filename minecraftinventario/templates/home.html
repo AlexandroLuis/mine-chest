@@ -235,22 +235,6 @@
 		</div>
 		<!-- Arquivo de script sobre o drag and drop do inventario -->
 		<script src="{% static 'js/ScriptArchive.js' %}"></script>
-		<script>
-			window.onload = function(){
-				var sum = 0;
-				var pontos = "Pontos: ";
-				var Meta = document.getElementById("meta").innerHTML;
-				document.getElementById("pontuacao").innerHTML = pontos + sum;
-
-				setInterval(function() {
-					/* FAZER A FUNÇÃO SOBRE A SOMA DOS ITENS AQUI */
-					document.getElementById("pontuacao").innerHTML = pontos + sum;
-					if(Meta == sum){
-						alert("Parabéns!");	
-					}					
-				}, 500);
-			}
-		</script>
 	{% else %}
 		<!--
 			Caso o Usuario não estiver logado, isso irá aparecer, na página inicial "home.html"
