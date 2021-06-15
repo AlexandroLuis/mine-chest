@@ -1,1 +1,205 @@
-To Do:
+Desenvolvimento:
+	- Crie uma pasta chamada Projeto
+	- Abra o terminal na pasta
+	- Crie o environment "py -m venv env"
+	- Execute o environment ".\env\Scripts\activate"
+	- Execute o comando pip para instalar o django "pip install django"
+	- Inicie um projeto django "django-admin startproject minecraftinventario"
+	- Execute o comando "cd minecraftinventario"
+	- Execute o comando pip para instalar o allauth "pip install django-allauth"
+		- No arquivo settings.py do minecraftinventario
+			- Importar o allauth "import allauth" 
+			- Adicionar os apps  "allauth", "allauth.account", "allauth.socialaccount" em 'INSTALLED_APPS = ['
+			- Fazer a configuração do allauth adicionando em 'settings.py'
+				
+
+				AUTH_USER_MODEL = "users.User"
+				
+				AUTHENTICATION_BACKENDS = [
+					"django.contrib.auth.backends.ModelBackend",
+					"allauth.account.auth_backends.AuthenticationBackend",
+				]
+
+				SITE_ID = 1
+				EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+				LOGIN_REDIRECT_URL = "/"
+				ACCOUNT_SESSION_REMEMBER = True
+				ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+				ACCOUNT_USERNAME_REQUIRED = False
+				ACCOUNT_AUTHENTICATION_METHOD = "email"
+				ACCOUNT_EMAIL_REQUIRED = True
+				ACCOUNT_UNIQUE_EMAIL = True
+				
+
+	- Execute o comando pip para instalar o crispyforms "pip install django-crispy-forms"
+		- No arquivo settings.py do minecraftinventario
+			- Adicionar o apps  "crispy_forms" em 'INSTALLED_APPS = ['
+			- Fazer a configuração do crispy forms adicionando
+				CRISPY_TEMPLATE_PACK = "bootstrap4"
+			
+	- Inicie um novo app django "py manage.py startapp users"
+	- Inicie um novo app django "py manage.py startapp pages"
+	
+	- Configurando o template
+		- Na pasta "Projeto\minecraftinventario"
+			- Crie uma pasta chamada "templates" e a partir dela será desenvolvido as paginas do sistema
+				- Na pasta templates
+				- Crie 2 arquivos, "base.html" & "home.html"
+				- Crie uma pasta chamada account
+					- Crie 3 arquivos html "login, logout & signup"
+			- Crie uma pasta chamada "static" e a partir dela será desenvolvido o 'script' e imagens do sistema
+				- Faça a configuração no arquivo settings
+					- realize a importação "import os"
+					- Fazer a configuração do allauth adicionando
+							
+
+						TEMPLATE_CONTEXT_PROCESSORS = (
+							"django.contrib.auth.context_processors.auth",
+							"django.core.context_processors.debug",
+							"django.core.context_processors.i18n",
+							"django.core.context_processors.media",
+							"django.core.context_processors.static",
+							"django.contrib.messages.context_processors.messages"
+						)
+						
+						MEDIA_ROOT = 'static/'
+						RANDOM_IMAGE_DIR = '/item/'
+						RANDOM_IMAGE_EXTENSIONS = ['.jpg','.jpeg','.png','.gif']
+						MEDIA_URL = '/img/item/'
+
+						STATICFILES_DIRS = [
+							os.path.join(BASE_DIR, 'static')
+						]	
+							
+					
+		- No arquivo 'settings'
+			- Adicionar o apps  "django.contrib.sites", "users.apps.UsersConfig", "pages.apps.PagesConfig" em 'INSTALLED_APPS = ['	
+			- Altere o 'DIRS': [], por "DIRS": [BASE_DIR / "templates"], em 'TEMPLATES = ['
+		- Utilizando o código já apresentado fazer os metodos de autentificação em
+			- Projeto\minecraftinventario\minecraftinventario\urls.py				
+			
+
+				from django.contrib import admin
+				from django.urls import include, path
+
+				urlpatterns = [
+					# Django Admin
+					path("admin/", admin.site.urls),
+					# User Management
+					path("accounts/", include("allauth.urls")),
+					# Local
+					path("", include("pages.urls", namespace="pages")),
+				]
+				
+
+			- Projeto\minecraftinventario\pages\urls.py
+					
+	
+				from django.urls import path
+				from . import views
+
+				app_name = "pages"
+
+				urlpatterns = [
+					path("", views.HomePageView.as_view(), name="home"),
+				]
+				
+
+			- Projeto\minecraftinventario\pages\views.py
+				
+		
+				from django.views.generic import TemplateView
+				from django.http import HttpResponse
+				from django.shortcuts import render
+
+				class HomePageView(TemplateView):
+					template_name = "home.html"
+
+			- Projeto\minecraftinventario\pages\apps.py
+				
+
+				from django.apps import AppConfig
+
+				class PagesConfig(AppConfig):
+					name = 'pages'
+
+			- Projeto\minecraftinventario\users\apps.py
+			
+
+				from django.apps import AppConfig
+
+				class UsersConfig(AppConfig):
+					name = 'users'		
+
+			- Projeto\minecraftinventario\users\admin.py
+			
+
+				from django.contrib import admin
+				from django.contrib.auth import admin as auth_admin
+				from .forms import UserChangeForm, UserCreationForm
+				from .models import User
+
+				@admin.register(User)
+				class UserAdmin(auth_admin.UserAdmin):
+					form = UserChangeForm
+					add_form = UserCreationForm
+					model = User
+					fieldsets = auth_admin.UserAdmin.fieldsets + (
+						("Informações Pessoais", {"fields": ("bio",)}),
+					)
+			
+
+	- Execute o comando "py manage.py makemigrations"
+	- Execute o comando "py manage.py migrate"
+	
+	- Na pasta "Projects\Projeto\minecraftinventario\users"
+		- Crie uma pasta chamada "templatestags" e a partir dela será desenvolvido as funções do sistema
+			- Crie um arquivo chamado "__init__.py" este arquivo deve ser vazio
+			- Crie as funções necessárias
+				- random_image.py
+
+					import os
+					import random
+					from django import template
+					from django.conf import settings
+
+					register = template.Library()
+
+					@register.simple_tag
+					def random_image(image_dir):
+						try:
+							valid_extensions = settings.RANDOM_IMAGE_EXTENSIONS
+						except AttributeError:
+							valid_extensions = ['.jpg','.jpeg','.png','.gif',]
+
+						if image_dir:
+							rel_dir = image_dir
+						else:
+							rel_dir = settings.RANDOM_IMAGE_DIR
+						rand_dir = os.path.join(settings.MEDIA_ROOT, rel_dir)
+
+						files = [f for f in os.listdir(rand_dir) if os.path.splitext(f)[1] in valid_extensions]
+
+						return os.path.join(rel_dir, random.choice(files))
+					
+
+				- random_numbers.py
+					
+
+					import random
+					from django import template
+
+					register = template.Library()
+
+					# Para gerar o numero aleatorio para a meta
+					@register.simple_tag
+					def random_int():
+						randomnumber = random.randint(15, 50)
+						return randomnumber
+					  
+					# Usado para qualquer estrutura de repetição
+					@register.filter(name='times') 
+					def times(number):
+						return range(number)
+	
+       - Execute o servidor "py manage.py runserver"
