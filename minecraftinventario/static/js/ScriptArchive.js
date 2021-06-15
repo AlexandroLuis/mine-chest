@@ -146,12 +146,23 @@ function leaveDroppable(elem) {
   free_space = false;
 }
 
+/**
+	Função para requisitar as imagens que serão movidas,
+	e fazer o calculo quando as mesmas estiverem no bau
+**/
 window.onload = function(){
 	var counter = setInterval(loader ,300);
 				
+	/**
+		Autocarrega ao executar a página, e mantem-se ativa até a condição
+		da pontuação ser atingida
+	**/
 	function loader() {
 		calculandoPontos();					
 					
+		/**
+			Função para requisitar a pontuação das imagens e fazer a soma das mesmas
+		**/
 		function calculandoPontos(){
 			var getID;
 			var sum = 0;
@@ -181,6 +192,9 @@ window.onload = function(){
 					
 				}
 			}
+			/**
+				Compara se a meta já foi atingida ou até mesmo extrapolada
+			**/
 			if(Meta == sum){
 				alert("Parabéns, Você completou o desafio!");
 				clearInterval(counter);
