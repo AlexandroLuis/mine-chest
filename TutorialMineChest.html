@@ -143,6 +143,14 @@
 						(<span style="background-color: #fff0f0">&quot;Informações Pessoais&quot;</span>, {<span style="background-color: #fff0f0">&quot;fields&quot;</span>: (<span style="background-color: #fff0f0">&quot;bio&quot;</span>,)}),
 					)
 			</div>
+			<span style="color: #333333">-</span> Projeto\minecraftinventario\users\models<span style="color: #333333">.</span>py
+			<div style="background: #ffffff; overflow:auto;width:auto;border:solid red;border-width:.0em .0em .0em .8em;padding:.2em .6em;">
+				<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">django.contrib.auth.models</span> <span style="color: #008800; font-weight: bold">import</span> AbstractUser
+				<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">django.db</span> <span style="color: #008800; font-weight: bold">import</span> models
+
+				<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">User</span>(AbstractUser):
+				bio <span style="color: #333333">=</span> models<span style="color: #333333">.</span>TextField(blank<span style="color: #333333">=</span><span style="color: #007020">True</span>
+			</div>
 	<span style="color: #333333">-</span> Execute o comando <span style="background-color: #fff0f0">&quot;py manage.py makemigrations&quot;</span>
 	<span style="color: #333333">-</span> Execute o comando <span style="background-color: #fff0f0">&quot;py manage.py migrate&quot;</span>
 	
