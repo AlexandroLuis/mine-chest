@@ -151,9 +151,9 @@ Desenvolvimento:
 				bio = models.TextField(blank=True
 			
 
-	- Execute o comando "py manage.py makemigrations"
+	- Caso exista o arquivo "db.sqlite3" em "Projeto\minecraftinventario" delete-o
 	- Execute o comando "py manage.py migrate"
-	
+
 	- Na pasta "Projects\Projeto\minecraftinventario\users"
 		- Crie uma pasta chamada "templatestags" e a partir dela será desenvolvido as funções do sistema
 			- Crie um arquivo chamado "__init__.py" este arquivo deve ser vazio
