@@ -78,7 +78,6 @@ Desenvolvimento:
 		- Utilizando o código já apresentado fazer os metodos de autentificação em
 			- Projeto\minecraftinventario\minecraftinventario\urls.py				
 			
-
 				from django.contrib import admin
 				from django.urls import include, path
 
@@ -93,8 +92,7 @@ Desenvolvimento:
 				
 
 			- Projeto\minecraftinventario\pages\urls.py
-					
-	
+						
 				from django.urls import path
 				from . import views
 
@@ -106,8 +104,7 @@ Desenvolvimento:
 				
 
 			- Projeto\minecraftinventario\pages\views.py
-				
-		
+					
 				from django.views.generic import TemplateView
 				from django.http import HttpResponse
 				from django.shortcuts import render
@@ -117,7 +114,6 @@ Desenvolvimento:
 
 			- Projeto\minecraftinventario\pages\apps.py
 				
-
 				from django.apps import AppConfig
 
 				class PagesConfig(AppConfig):
@@ -125,14 +121,12 @@ Desenvolvimento:
 
 			- Projeto\minecraftinventario\users\apps.py
 			
-
 				from django.apps import AppConfig
 
 				class UsersConfig(AppConfig):
 					name = 'users'		
 
-			- Projeto\minecraftinventario\users\admin.py
-			
+			- Projeto\minecraftinventario\users\admin.py			
 
 				from django.contrib import admin
 				from django.contrib.auth import admin as auth_admin
@@ -147,6 +141,14 @@ Desenvolvimento:
 					fieldsets = auth_admin.UserAdmin.fieldsets + (
 						("Informações Pessoais", {"fields": ("bio",)}),
 					)
+			
+			- Projeto\minecraftinventario\users\models.py
+
+				from django.contrib.auth.models import AbstractUser
+				from django.db import models
+
+				class User(AbstractUser):
+				bio = models.TextField(blank=True
 			
 
 	- Execute o comando "py manage.py makemigrations"
