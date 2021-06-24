@@ -151,8 +151,171 @@
 				<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">User</span>(AbstractUser):
 				bio <span style="color: #333333">=</span> models<span style="color: #333333">.</span>TextField(blank<span style="color: #333333">=</span><span style="color: #007020">True</span>
 			</div>
-		<span style="color: #333333">-</span> Caso exista o arquivo <span style="background-color: #fff0f0">"db.sqlite3"</span> em <span style="background-color: #fff0f0">"Projeto\minecraftinventario"</span> delete-o</span>
-		<span style="color: #333333">-</span> Execute o comando <span style="background-color: #fff0f0">&quot;py manage.py migrate&quot;</span>
+			
+			<span style="color: #333333">-</span> Projeto\minecraftinventario\users\forms.py
+				<div style="background: #ffffff; overflow:auto;width:auto;border:solid red;border-width:.0em .0em .0em .8em;padding:.2em .6em;">
+				<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">django.contrib.auth</span> <span style="color: #008800; font-weight: bold">import</span> forms
+				<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">.models</span> <span style="color: #008800; font-weight: bold">import</span> User
+
+				<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">UserChangeForm</span>(forms<span style="color: #333333">.</span>UserChangeForm):
+					<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Meta</span>(forms<span style="color: #333333">.</span>UserChangeForm<span style="color: #333333">.</span>Meta):
+						model <span style="color: #333333">=</span> User
+
+
+				<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">UserCreationForm</span>(forms<span style="color: #333333">.</span>UserCreationForm):
+					<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Meta</span>(forms<span style="color: #333333">.</span>UserCreationForm<span style="color: #333333">.</span>Meta):
+						model <span style="color: #333333">=</span> User
+				</div>
+			<span >- O arquivo em <span style="background-color: #fff0f0">"Projeto\minecraftinventario\minecraftinventario\settings.py"</span> deve ser semelhante ao apresentado </span>
+			<div style="background: #ffffff; overflow:auto;width:auto;border:solid red;border-width:.0em .0em .0em .8em;padding:.2em .6em;">
+				<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">pathlib</span> <span style="color: #008800; font-weight: bold">import</span> Path
+				<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">os</span>
+				<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">allauth</span>
+
+				BASE_DIR <span style="color: #333333">=</span> Path(__file__)<span style="color: #333333">.</span>resolve()<span style="color: #333333">.</span>parent<span style="color: #333333">.</span>parent
+
+
+				<span style="color: #888888"># SECURITY WARNING: keep the secret key used in production secret!</span>
+				SECRET_KEY <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;3dg*3m4!^iu&amp;3bym0f_0h&amp;7_nykish33o_-vgrfv014ltza00g&quot;</span>
+
+				<span style="color: #888888"># SECURITY WARNING: don&#39;t run with debug turned on in production!</span>
+				DEBUG <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+
+				ALLOWED_HOSTS <span style="color: #333333">=</span> []
+
+
+				INSTALLED_APPS <span style="color: #333333">=</span> [
+					<span style="color: #888888"># django</span>
+					<span style="background-color: #fff0f0">&quot;django.contrib.admin&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.auth&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.contenttypes&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.sessions&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.messages&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.staticfiles&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.sites&quot;</span>,
+					<span style="color: #888888"># 3rd party</span>
+					<span style="background-color: #fff0f0">&quot;allauth&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;allauth.account&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;allauth.socialaccount&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;crispy_forms&quot;</span>,
+					<span style="color: #888888"># local pages</span>
+					<span style="background-color: #fff0f0">&quot;users.apps.UsersConfig&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;pages.apps.PagesConfig&quot;</span>,
+				] 
+
+				AUTH_USER_MODEL <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;users.User&quot;</span>
+
+				MIDDLEWARE <span style="color: #333333">=</span> [
+					<span style="background-color: #fff0f0">&quot;django.middleware.security.SecurityMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.sessions.middleware.SessionMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&#39;whitenoise.middleware.WhiteNoiseMiddleware&#39;</span>,
+					<span style="background-color: #fff0f0">&quot;django.middleware.common.CommonMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.middleware.csrf.CsrfViewMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.auth.middleware.AuthenticationMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.messages.middleware.MessageMiddleware&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.middleware.clickjacking.XFrameOptionsMiddleware&quot;</span>,
+				]
+
+				ROOT_URLCONF <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;minecraftinventario.urls&quot;</span>  
+
+				TEMPLATES <span style="color: #333333">=</span> [
+					{
+						<span style="background-color: #fff0f0">&quot;BACKEND&quot;</span>: <span style="background-color: #fff0f0">&quot;django.template.backends.django.DjangoTemplates&quot;</span>,
+						<span style="background-color: #fff0f0">&quot;DIRS&quot;</span>: [BASE_DIR <span style="color: #333333">/</span> <span style="background-color: #fff0f0">&quot;templates&quot;</span>],
+						<span style="background-color: #fff0f0">&quot;APP_DIRS&quot;</span>: <span style="color: #007020">True</span>,
+						<span style="background-color: #fff0f0">&quot;OPTIONS&quot;</span>: {
+							<span style="background-color: #fff0f0">&quot;context_processors&quot;</span>: [
+								<span style="background-color: #fff0f0">&quot;django.template.context_processors.debug&quot;</span>,
+								<span style="background-color: #fff0f0">&quot;django.template.context_processors.request&quot;</span>,
+								<span style="background-color: #fff0f0">&quot;django.contrib.auth.context_processors.auth&quot;</span>,
+								<span style="background-color: #fff0f0">&quot;django.contrib.messages.context_processors.messages&quot;</span>,
+							],
+						},
+					},
+				]
+
+				TEMPLATE_CONTEXT_PROCESSORS <span style="color: #333333">=</span> (
+					<span style="background-color: #fff0f0">&quot;django.contrib.auth.context_processors.auth&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.core.context_processors.debug&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.core.context_processors.i18n&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.core.context_processors.media&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.core.context_processors.static&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;django.contrib.messages.context_processors.messages&quot;</span>
+				)
+
+				WSGI_APPLICATION <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;minecraftinventario.wsgi.application&quot;</span>
+
+				DATABASES <span style="color: #333333">=</span> {
+					<span style="background-color: #fff0f0">&quot;default&quot;</span>: {
+						<span style="background-color: #fff0f0">&quot;ENGINE&quot;</span>: <span style="background-color: #fff0f0">&quot;django.db.backends.sqlite3&quot;</span>,
+						<span style="background-color: #fff0f0">&quot;NAME&quot;</span>: BASE_DIR <span style="color: #333333">/</span> <span style="background-color: #fff0f0">&quot;db.sqlite3&quot;</span>,
+					}
+				}
+
+				AUTH_PASSWORD_VALIDATORS <span style="color: #333333">=</span> [
+					{
+						<span style="background-color: #fff0f0">&quot;NAME&quot;</span>: <span style="background-color: #fff0f0">&quot;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&quot;</span>,
+					},
+					{
+						<span style="background-color: #fff0f0">&quot;NAME&quot;</span>: <span style="background-color: #fff0f0">&quot;django.contrib.auth.password_validation.MinimumLengthValidator&quot;</span>,
+					},
+					{
+						<span style="background-color: #fff0f0">&quot;NAME&quot;</span>: <span style="background-color: #fff0f0">&quot;django.contrib.auth.password_validation.CommonPasswordValidator&quot;</span>,
+					},
+					{
+						<span style="background-color: #fff0f0">&quot;NAME&quot;</span>: <span style="background-color: #fff0f0">&quot;django.contrib.auth.password_validation.NumericPasswordValidator&quot;</span>,
+					},
+				]
+
+				<span style="color: #888888"># IMG URL</span>
+				MEDIA_ROOT <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;static/&#39;</span>
+				RANDOM_IMAGE_DIR <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;/item/&#39;</span>
+				RANDOM_IMAGE_EXTENSIONS <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;.jpg&#39;</span>,<span style="background-color: #fff0f0">&#39;.jpeg&#39;</span>,<span style="background-color: #fff0f0">&#39;.png&#39;</span>,<span style="background-color: #fff0f0">&#39;.gif&#39;</span>]
+				MEDIA_URL <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;/img/item/&#39;</span>
+
+				STATICFILES_DIRS <span style="color: #333333">=</span> [
+				   os<span style="color: #333333">.</span>path<span style="color: #333333">.</span>join(BASE_DIR, <span style="background-color: #fff0f0">&#39;static&#39;</span>)
+				]
+
+				LANGUAGE_CODE <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;pt-br&quot;</span>
+
+				TIME_ZONE <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;UTC&quot;</span>
+
+				USE_I18N <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+
+				USE_L10N <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+
+				USE_TZ <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+
+
+				STATIC_URL <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;/static/&#39;</span>
+
+
+				<span style="color: #888888"># Django-allauth</span>
+
+				AUTHENTICATION_BACKENDS <span style="color: #333333">=</span> [
+					<span style="background-color: #fff0f0">&quot;django.contrib.auth.backends.ModelBackend&quot;</span>,
+					<span style="background-color: #fff0f0">&quot;allauth.account.auth_backends.AuthenticationBackend&quot;</span>,
+				]
+
+				SITE_ID <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+				EMAIL_BACKEND <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;django.core.mail.backends.console.EmailBackend&quot;</span>
+				LOGIN_REDIRECT_URL <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;/&quot;</span>
+				ACCOUNT_SESSION_REMEMBER <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+				ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+				ACCOUNT_USERNAME_REQUIRED <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+				ACCOUNT_AUTHENTICATION_METHOD <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;email&quot;</span>
+				ACCOUNT_EMAIL_REQUIRED <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+				ACCOUNT_UNIQUE_EMAIL <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+
+
+				<span style="color: #888888"># crispy-forms</span>
+
+				CRISPY_TEMPLATE_PACK <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;bootstrap4&quot;</span>
+</div>
+			
+	<span style="color: #333333">-</span> Caso exista o arquivo <span style="background-color: #fff0f0">"db.sqlite3"</span> em <span style="background-color: #fff0f0">"Projeto\minecraftinventario"</span> delete-o</span>
+	<span style="color: #333333">-</span> Execute o comando <span style="background-color: #fff0f0">&quot;py manage.py migrate&quot;</span>
 
 	<span style="color: #333333">-</span> Na pasta <span style="background-color: #fff0f0">&quot;Projects\Projeto\minecraftinventario\users&quot;</span>
 		<span style="color: #333333">-</span> Crie uma pasta chamada <span style="background-color: #fff0f0">&quot;templatestags&quot;</span> e a partir dela será</span> desenvolvido <span style="color: #008800; font-weight: bold">as</span> funçõ</span>es do sistema
