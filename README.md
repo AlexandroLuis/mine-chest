@@ -13,4 +13,4 @@ Como Executar:<br>
   - Execute o Servidor "py manage.py runserver"<br>
 
 Tutorial de Desenvolvimento:<br>
-  - <a href="https://zyhux.github.io/MinecraftInventario/TutorialMinechest.html" >Clique Aqui</a> para acessar o tutorial
+  - <a href="https://zyhux.github.io/Spinning/TutorialMinechest.html" >Clique Aqui</a> para acessar o tutorial
